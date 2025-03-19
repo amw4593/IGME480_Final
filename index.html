@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>RIT 2049 AR Scene</title>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/ar.js/2.2.1/aframe/build/aframe-ar.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <a-scene embedded arjs="sourceType: webcam;" fog="type: exponential; color: #0a0a1a; density: 0.05"
+        background="color: #0a0a1a">
+
+        <!-- Neon Lighting -->
+        <a-entity light="type: ambient; color: #222"></a-entity>
+        <a-entity light="type: point; color: #ff00ff; intensity: 2; distance: 15" position="2 5 -3"></a-entity>
+        <a-entity light="type: point; color: #00ffff; intensity: 2; distance: 15" position="-2 5 -3"></a-entity>
+
+        <!-- Marker for AR Tracking -->
+        <a-marker preset="hiro">
+
+            <!-- Car Model -->
+            <a-entity gltf-model="assets/car.glb" position="0 0 0" scale="0.5 0.5 0.5" rotation="0 180 0"></a-entity>
+
+            <!-- Keyboard and Mouse Model -->
+            <a-entity gltf-model="assets/keyboard_and_mouse/scene.gltf" position="-1 0 -1" scale="0.3 0.3 0.3"
+                rotation="0 90 0"></a-entity>
+
+            <!-- Star Car Model -->
+            <a-entity gltf-model="assets/star_car/scene.gltf" position="1 0 -1" scale="0.4 0.4 0.4"
+                rotation="0 -90 0"></a-entity>
+
+        </a-marker>
+
+        <!-- AR Camera -->
+        <a-entity camera></a-entity>
+
+    </a-scene>
+</body>
+
+</html>
