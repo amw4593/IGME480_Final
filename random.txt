@@ -1,0 +1,36 @@
+
+    <!-- Preload Assets -->
+    <a-assets timeout="10000">
+      <!-- Models -->
+      <a-asset-item id="keyboardModel" src="assets/keyboard_and_mouse/scene.gltf"></a-asset-item>
+      <a-asset-item id="starCarModel" src="assets/star_car/scene.gltf"></a-asset-item>
+      <a-asset-item id="CarModel" src="assets/result.gltf"></a-asset-item>
+
+      <!-- Sound -->
+      <audio id="ambientSound" src="assets/laststop.mp3" preload="auto"></audio>
+    </a-assets>
+
+    <!-- Global Sound -->
+    <a-entity sound="src: #ambientSound; autoplay: true; loop: true; volume: 0.5"></a-entity>
+
+    <!-- Lights -->
+    <a-entity light="type: ambient; color: #222"></a-entity>
+    <a-entity light="type: point; color: #ff00ff; intensity: 2; distance: 15" position="2 5 -3"></a-entity>
+    <a-entity light="type: point; color: #00ffff; intensity: 2; distance: 15" position="-2 5 -3"></a-entity>
+
+    <!-- Marker Setup -->
+    <a-marker type="pattern" preset="custom"
+      url="https://raw.githubusercontent.com/AR-js-org/AR.js/master/data/images/hiro.png">
+
+      <!-- Animated Tint Plane (moved inside marker for visibility) -->
+      <a-plane position="0 0 0" rotation="-90 0 0" width="2" height="2" color="#220033"
+        material="shader: flat; opacity: 0.1; transparent: true"
+        animation="property: material.opacity; from: 0.05; to: 0.2; dur: 3000; dir: alternate; loop: true">
+      </a-plane>
+
+      <!-- Keyboard and Mouse Model -->
+      <a-entity gltf-model="#keyboardModel" position="-1 0 -1" scale="0.3 0.3 0.3" rotation="0 90 0"></a-entity>
+
+      <!-- Star Car Model (visible, spaced out) -->
+      <a-entity gltf-model="#starCarModel" position="1.2 0 -1" scale="0.4 0.4 0.4" rotation="0 -90 0"></a-entity>
+
