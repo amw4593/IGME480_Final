@@ -13,9 +13,10 @@
   <a-scene embedded arjs vr-mode-ui="enabled: false">
     <!-- Marker Setup -->
     <a-marker preset="hiro">
+      <!--Models, one is the old building, and one is a revised version-->
       <a-entity gltf-model="assets/OldSpr.glb" position="1.5 0 0" scale="2 2 2" rotation="90 180 0">
         <a-entity gltf-model="assets/NewSpr.glb" position="1 0 0" scale="1.5 1.5 1.5" rotation="0 180 0">
-      </a-entity>
+        </a-entity>
     </a-marker>
 
     <!-- AR.js Camera -->
