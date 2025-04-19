@@ -12,7 +12,7 @@
 <body style="margin: 0; overflow: hidden;">
   <a-scene embedded arjs vr-mode-ui="enabled: false">
     <!-- Marker Setup -->
-    <a-marker preset="hiro">
+    <a-marker type="pattern" url="assets/patt.patt">
       <!--Models, one is the old building, and one is a revised version-->
       <a-entity gltf-model="assets/Old_RIT.glb" position="1 0 0" scale="1 1 1" rotation="-90 180 0">
         <a-entity gltf-model="assets/New_RIT.glb" position="3 0 0" scale="0.7 0.7 0.7" rotation="0 180 0">
