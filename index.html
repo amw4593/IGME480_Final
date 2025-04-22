@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <title>RIT 2129</title>
   <!-- A-Frame -->
   <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
 
@@ -9,6 +10,7 @@
   <script src="https://raw.githack.com/AR-js-org/AR.js/3.4.5/aframe/build/aframe-ar.js"></script>
 
   <script>
+    //Script to add a click function to each building to add a description for each building
     AFRAME.registerComponent('old', {
       init: function () {
         this.el.addEventListener('click', e => {
@@ -16,6 +18,7 @@
         });
       }
     });
+    //Script to add a click function to each building to add a description for each building
     AFRAME.registerComponent('new', {
       init: function () {
         this.el.addEventListener('click', e => {
@@ -29,12 +32,18 @@
 <body style="margin: 0; overflow: hidden;">
   <a-scene embedded arjs vr-mode-ui="enabled: false" raycaster cursor="rayOrigin: mouse"
     renderer="antialias: true; alpha: true">
+
+    <!--Music-->
+    <a-sound src="assets/laststop.mp3" autoplay="true" loop="true" position="0 2 0"></a-sound>
+
     <!-- Marker Setup -->
     <a-marker type="pattern" url="pattern-patt.patt">
-      <!--Models, one is the old building, and one is a revised version-->
-      <a-entity gltf-model="assets/Old_RIT.glb" position="0 2 0" scale="1 1 1" rotation="-90 0 0" old>
-        <a-entity gltf-model="assets/New_RIT.glb" position="0 -2 0" scale="1.2 1.2 1.2" rotation="0 0 0" new>
-        </a-entity>
+
+      <!--Old RIT Building-->
+      <a-entity gltf-model="assets/Old_RIT.glb" position="0 2 0" scale="1 1 1" rotation="-90 0 0" old></a-entity>
+
+      <!--New RIT Building-->
+      <a-entity gltf-model="assets/New_RIT.glb" position="0 -2 0" scale="1.2 1.2 1.2" rotation="0 0 0" new></a-entity>
     </a-marker>
 
     <!-- AR.js Camera -->
