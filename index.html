@@ -32,20 +32,27 @@
 <body style="margin: 0; overflow: hidden;">
   <a-scene embedded arjs vr-mode-ui="enabled: false" raycaster cursor="rayOrigin: mouse"
     renderer="antialias: true; alpha: true">
+    <!-- Asset Preloading -->
+    <a-assets>
+      <a-asset-item id="oldRIT" src="assets/Old_RIT.glb"></a-asset-item>
+      <a-asset-item id="newRIT" src="assets/New_RIT.glb"></a-asset-item>
+      <audio id="bg-music" src="assets/laststop.mp3" preload="auto"></audio>
+    </a-assets>
 
     <!--Music-->
-    <a-sound src="assets/laststop.mp3" autoplay="true" loop="true" position="0 2 0"></a-sound>
+    <a-sound src="#bg-music" autoplay="true" loop="true" position="0 2 0"></a-sound>
 
     <!-- Marker Setup -->
     <a-marker type="pattern" url="pattern-patt.patt">
 
+      <!--Added rotation to both entities-->
       <a-entity rotation="-90 0 0">
 
         <!--Old RIT Building-->
-        <a-entity gltf-model="assets/Old_RIT.glb" position="0 1 0" scale="1 1 1" old></a-entity>
+        <a-entity gltf-model="#oldRIT" position="0 1 0" scale="1 1 1" old></a-entity>
 
         <!--New RIT Building-->
-        <a-entity gltf-model="assets/New_RIT.glb" position="0 -1 0" scale="1.2 1.2 1.2" new></a-entity>
+        <a-entity gltf-model="#newRIT" position="0 -1 0" scale="1.2 1.2 1.2" new></a-entity>
       </a-entity>
     </a-marker>
 
